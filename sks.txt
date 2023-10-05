@@ -1,0 +1,341 @@
+//TASK-1
+  //NUMBER GUESSING GAME
+##include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main()
+{
+	int n,g,r = 0;
+	srand(time(0)); 
+	n= rand() % 100 + 1; 
+	cout << "Number Game\n";
+	do
+	{
+		cout << "Enter a no between 1 and 100 : ";
+		cin >> g;
+		r++;
+		if (g > n)
+			cout << "high\n";
+		else if (g < n)
+			cout << "low\n";
+		else
+			cout << "Correct You got it in " << r << "runs";
+	} while (g != n);
+	return 0;}
+
+
+
+
+// TASK-2
+  //Simple Calculator
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a,b;
+    char ch='y';
+    while(ch=='y'){
+    cout<<"LIST OF OPERATIONS\n1.Addition.\n2.Subtraction.\n3.Multiplication.\n4.Division.\n";
+    cout<<"Enter first no";
+    cin>>a;
+    cout<<"Enter second no";
+    cin>>b;
+    int c;
+    cout<<"Enter option ";
+    cin>>c;
+    switch(c){
+        case 1:
+        cout<<a+b<<"\n";
+        break;
+        case 2:
+        cout<<a-b<<"\n";
+        break;
+        case 3:
+        cout<<a*b<<"\n";
+        break;
+        case 4:
+        cout<<a/b<<"\n";
+        break;
+        default:
+        cout<<"invalid"<<"\n";
+        break;
+    }
+    cout<<"Want to play again (y/n): ";
+    cin>>ch;}
+    return 0;
+}
+
+
+
+
+
+
+
+
+// TASK-3
+ // TIC-TAC-TOE GAME
+#include <iostream>
+using namespace std;
+
+int input;
+char arr[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+bool ch = true;
+void c()
+{
+    if (arr[0] == 'O' && arr[1] == 'O' && arr[2] == 'O' || arr[3] == 'O' && arr[4] == 'O' && arr[5] == 'O' || arr[6] == 'O' && arr[7] == 'O' && arr[8] == 'O' || arr[0] == 'O' && arr[4] == 'O' && arr[8] == 'O' || arr[2] == 'O' && arr[4] == 'O' && arr[8] == 'O' || arr[0] == 'O' && arr[3] == 'O' && arr[6] == 'O' || arr[1] == 'O' && arr[4] == 'O' && arr[7] == 'O' || arr[2] == 'O' && arr[5] == 'O' && arr[8] == 'O')
+    {
+        cout << "Player second win\n";
+         ch = false;
+    }
+    if (arr[0] == 'X' && arr[1] == 'X' && arr[2] == 'X' || arr[3] == 'X' && arr[4] == 'X' && arr[5] == 'X' || arr[6] == 'X' && arr[7] == 'X' && arr[8] == 'X' || arr[0] == 'X' && arr[4] == 'X' && arr[8] == 'X' || arr[2] == 'X' && arr[4] == 'X' && arr[8] == 'X' || arr[0] == 'X' && arr[3] == 'X' && arr[6] == 'X' || arr[1] == 'X' && arr[4] == 'X' && arr[7] == 'X' || arr[2] == 'X' && arr[5] == 'X' && arr[8] == 'X')
+    {
+        cout << "Player first win\n";
+         ch = false;
+    }
+    else
+    {
+         ch = true;
+    }
+}
+void n1()
+{
+    cout << "Player first, it's your turn(X)";
+    cin >> input;
+    arr[input - 1] = 'X';
+    for (int i = 0; i < 9;)
+    {
+        cout << "\t" << arr[i] << " | " << arr[i + 1] << " | " << arr[i + 2] << "\n";
+        cout << "\t---------\n";
+        i = i + 3;
+    }
+    c();
+}
+void n2()
+{
+    cout << "Player second, your turn(O)";
+    cin >> input;
+    arr[input - 1] = 'O';
+    for (int i = 0; i < 9;)
+    {
+        cout << "\t" << arr[i] << " | " << arr[i + 1] << " | " << arr[i + 2] << "\n";
+        cout << "\t---------\n";
+        i = i + 3;
+    }
+    c();
+}
+void g(){
+        if(arr[0]!='1' && arr[1]!='2' && arr[2]!='3' && arr[3]!='4' && arr[4]!='5' && arr[5]!='6' && arr[6]!='7' && arr[7]!='8' && arr[8]!='9'){
+            cout<<"Draw match\n";
+            ch=false;
+        }
+        else{
+           cout<<"ongoing match\n";
+        }
+}
+int main()
+{
+    cout<<"Tic Tac Toe\n";
+    
+    char con = 'y';
+    while (con = 'y')
+    {    
+        char arr[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        for (int i = 0; i < 9;)
+        {
+            cout << "\t" << arr[i] << " | " << arr[i + 1] << " | " << arr[i + 2] << "\n";
+            cout << "\t---------\n";
+            i = i + 3;
+        }
+        cout << "first player symbol : X\nSecond player symbol : O\nEnter number corresponding to space\n";
+        int input;
+        while (true)
+        {
+            n1();
+            if (ch == false)
+            {
+                break;
+            }
+            g();
+            if (ch == false)
+            {
+                break;
+            }
+            n2();
+            if (ch == false)
+            {
+                break;
+            }
+            g();
+            if (ch == false)
+            {
+                break;
+            }  
+        }
+        cout << "want to play again(y/n): ";
+        cin >> con;
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+// TASK 4
+// TO-DO LIST
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+vector<string> tasks;
+vector<string> status;
+void d()
+{
+    string task;
+    string stat;
+    cout << "Enter task: ";
+    cin >> task;
+    cout << "Enter task's status(pending/completed): ";
+    cin >> stat;
+    string add;
+    add=task + "-->" + stat;
+    cout<<add<<"\n";
+    tasks.push_back(task);
+    status.push_back(stat);
+    cout << "Task added\n" << endl;
+}
+void v()
+{
+    if (tasks.empty())
+    {
+        cout << "No tasks to view." << endl;
+    }
+    else
+    {
+        cout << "Tasks:" << endl;
+        for(int i=0;i<tasks.size();i++){
+            cout<<tasks[i]<<" --> ";
+        }
+        for(int i=0;i<status.size();i++){
+            cout<<status[i]<<"\n";
+        }
+    }
+}
+void u()
+{
+    if(tasks.empty())
+    {
+        cout<<"No Task\n";
+    }
+    else
+    {
+        string task;
+        cout<<"Enter Task to be updated: ";
+        cin>>task;
+        for(int i=0;i<tasks.size();i++)
+        {
+            if(task==tasks[i])
+            {
+                string stat;
+                cout<<"Enter task status(pending/completed): ";
+                cin>>stat;
+                status[i]=stat;
+                cout<<"Task status updated\n";
+            }
+            else
+            {
+                cout<<"not found\n";
+            }
+        }
+    }
+}
+void l()
+{
+    if(tasks.empty())
+    {
+        cout<<"No Task to Delete\n";
+    }
+    else
+    {
+        string task;
+        cout<<"Enter Task to be deleted: ";
+        cin>>task;
+        for(int i=0;i<tasks.size();i++)
+        {
+            if(task==tasks[i])
+            {
+                tasks.erase(tasks.begin()+i);
+                status.erase(status.begin()+i);
+                cout<<"Task Deleted\n";
+            }
+            else
+            {
+                cout<<"not found\n";
+            }
+        }
+    }
+}
+int main()
+{   cout<<"write '_' for space\n";
+    vector<string> tasks;
+    int c;
+    cout << "1. Add task" << endl;
+    cout << "2. View tasks" << endl;
+    cout << "3. Update status of Task" << endl;
+    cout << "4. Delete Task" << endl;
+    cout<<  "5 .Exit"<<endl;
+    while (true)
+    {
+        cout << "Enter choice: ";
+        cin >> c;
+
+        switch (c)
+        {
+        case 1:
+        {
+            d();
+            break;
+        }
+        case 2:
+        {
+            v();
+            break;
+        }
+        case 3:
+        {
+            u();
+            break;
+        }
+        case 4:
+        {
+            l();
+            break;
+        }
+        case 5:
+        {
+            cout << "Exit" << endl;
+            return 0;
+        }
+        default:
+        {
+            cout << "Invalid" << endl;
+            break;
+        }
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
